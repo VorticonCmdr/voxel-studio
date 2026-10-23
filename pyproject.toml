@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "voxel-mcp"
+version = "0.1.0"
+description = "A local sprite-to-voxel workbench with agent tools"
+requires-python = ">=3.11"
+dependencies = ["numpy>=2,<3", "pillow>=11,<13", "fastapi>=0.115,<1", "uvicorn>=0.34,<1", "mcp>=1.12,<2", "httpx>=0.28,<1"]
+
+[project.scripts]
+voxel-studio = "voxel_mcp.server:main"
+voxel-agent = "voxel_mcp.agent:main"
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
